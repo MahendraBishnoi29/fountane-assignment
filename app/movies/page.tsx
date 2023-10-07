@@ -1,11 +1,18 @@
+import AllMovies from "@/components/AllMovies";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import React from "react";
+import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-type Props = {};
+export const metadata: Metadata = {
+  title: "Explore Movies Here",
+  description: "Find Latest Movies Here",
+};
 
-const Movies = async (props: Props) => {
+// const TMDB_Url = "https://api.themoviedb.org/3/";
+// const TMDB_KEY = "abd8c1205b55fe67db01ed53f79e30f8";
+
+const Movies = async () => {
   const supabase = createServerComponentClient({ cookies });
 
   const {
@@ -16,7 +23,11 @@ const Movies = async (props: Props) => {
     redirect("/login");
   }
 
-  return <h1 className="text-red-400">Movieeeeeee</h1>;
+  return (
+    <div>
+      <AllMovies />
+    </div>
+  );
 };
 
 export default Movies;

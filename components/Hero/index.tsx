@@ -1,6 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <section className="mt-28 px-5 text-center flex items-center justify-center flex-col">
       <div className="max-w-2xl md:max-w-xl lg:max-w-2xl space-y-3">
@@ -14,10 +17,16 @@ const Hero = () => {
         </p>
 
         <div className="flex items-center justify-center gap-6">
-          <button className="text-white inline-flex items-center justify-center px-6 py-1 rounded-full border border-white border-opacity-10 bg-[#64AE9D] hover:bg-[#37bd9e] shadow-sm shadow-[#64AE9D] hover:shadow-2xl">
+          <button
+            onClick={() => router.push("/login")}
+            className="text-white inline-flex items-center justify-center px-6 py-1 rounded-full border border-white border-opacity-10 bg-[#64AE9D] hover:bg-[#37bd9e] shadow-sm shadow-[#64AE9D] hover:shadow-2xl"
+          >
             login
           </button>
-          <button className="text-white inline-flex items-center justify-center px-6 py-1 rounded-full border border-white border-opacity-25 bg-transparent hover:bg-[#37bd9e] shadow-sm shadow-gray-400">
+          <button
+            onClick={() => router.push("/movies")}
+            className="text-white inline-flex items-center justify-center px-6 py-1 rounded-full border border-white border-opacity-25 bg-transparent hover:bg-[#37bd9e] shadow-sm shadow-gray-400"
+          >
             explore
           </button>
         </div>
