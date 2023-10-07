@@ -14,9 +14,17 @@ const ClientNav = (props: Props) => {
             home
           </Link>
 
-          <Link className="text-gray-50 hover:text-gray-100" href="#">
+          <div
+            className="text-gray-50 hover:text-gray-100 cursor-pointer"
+            onClick={() =>
+              window.open(
+                "https://github.com/MahendraBishnoi29/fountane-assignment",
+                "_blank"
+              )
+            }
+          >
             github
-          </Link>
+          </div>
 
           <Link className="text-gray-50 hover:text-gray-100" href="/movies">
             movies
