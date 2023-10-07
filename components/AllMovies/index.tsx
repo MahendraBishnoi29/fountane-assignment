@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import {
   QueryClient,
   QueryClientProvider,
@@ -8,7 +7,6 @@ import {
 } from "@tanstack/react-query";
 import axios from "axios";
 import MovieCard from "../MovieCard";
-import Navbar from "../Navbar";
 import ClientNav from "../Navbar/ClientNav";
 
 type Props = {};
@@ -17,7 +15,7 @@ type Props = {};
 const queryClient = new QueryClient();
 
 const AllMovies = (props: Props) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["movies"],
     queryFn: async () => {
       const res = await axios.get(
@@ -26,8 +24,6 @@ const AllMovies = (props: Props) => {
       return res.data?.results;
     },
   });
-
-  console.log(data);
 
   // const url =
   //   "https://api.themoviedb.org/3/movie/top_rated?api_key=abd8c1205b55fe67db01ed53f79e30f8&language=en-US";
@@ -51,11 +47,15 @@ const AllMovies = (props: Props) => {
     <QueryClientProvider client={queryClient}>
       <section className="flex flex-col items-center gap-10">
         <ClientNav />
-        <div className="flex flex-wrap">
-          {data?.map((m: any) => (
-            <MovieCard key={m?.id} movie={m} />
-          ))}
-        </div>
+        {isLoading ? (
+          <h2 className="text-white">Loading Moviess.......</h2>
+        ) : (
+          <div className="flex flex-wrap">
+            {data?.map((m: any) => (
+              <MovieCard key={m?.id} movie={m} />
+            ))}
+          </div>
+        )}
       </section>
     </QueryClientProvider>
   );
