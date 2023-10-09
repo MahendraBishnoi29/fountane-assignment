@@ -8,7 +8,7 @@ type Props = {
 const MovieCard = ({ movie }: Props) => {
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
-      <div className="bg-slate-900 rounded-lg shadow-md p-4">
+      <div className="bg-[#64AE9D] rounded-lg shadow-md p-4">
         <img
           loading="lazy"
           src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`}

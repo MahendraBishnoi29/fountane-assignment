@@ -16,18 +16,19 @@ const AllMovies = () => {
     },
   });
 
+  if (isLoading) {
+    return <h2 className="text-white">Loading Moviess.......</h2>;
+  }
+
   return (
     <section className="flex flex-col items-center gap-10">
       <ClientNav />
-      {isLoading ? (
-        <h2 className="text-white">Loading Moviess.......</h2>
-      ) : (
-        <div className="flex flex-wrap">
-          {data?.map((m: any) => (
-            <MovieCard key={m?.id} movie={m} />
-          ))}
-        </div>
-      )}
+
+      <div className="flex flex-wrap">
+        {data?.map((m: any) => (
+          <MovieCard key={m?.id} movie={m} />
+        ))}
+      </div>
     </section>
   );
 };

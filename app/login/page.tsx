@@ -52,12 +52,12 @@ const LogIn = (props: Props) => {
     <div className="flex h-screen justify-center items-center">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="bg-[#64AE9D] shadow-md rounded px-8 pt-6 pb-8 mb-4"
       >
-        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+        <h2 className="text-2xl font-semibold text-white mb-4">Login</h2>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-white text-sm font-bold mb-2"
             htmlFor="email"
           >
             Email Address
@@ -69,11 +69,11 @@ const LogIn = (props: Props) => {
             placeholder="Email Address"
             {...register("email")}
           />
-          <span className="text-red-400">{errors?.email?.message}</span>
+          <span className="text-red-600">{errors?.email?.message}</span>
         </div>
         <div className="mb-6">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-white text-sm font-bold mb-2"
             htmlFor="password"
           >
             Password
@@ -85,12 +85,12 @@ const LogIn = (props: Props) => {
             placeholder="Password"
             {...register("password")}
           />
-          <span className="text-red-400">{errors?.password?.message}</span>
+          <span className="text-red-600">{errors?.password?.message}</span>
         </div>
         <div className="flex items-center justify-between gap-1">
           <button
             disabled={loading}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-[#0e866a] hover:bg-[#09634e] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
             onClick={handleSubmit(onSubmit)}
           >
